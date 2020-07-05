@@ -17,6 +17,13 @@
         </div>
     </div>
     <a href="/pertanyaan/{{$items->id}}/edit" class="btn btn-primary mt-2">Edit Pertanyaan</a>
+    <form method="POST" action="{{ route('pertanyaan.destroy', ['id' => $items->id]) }}">
+        {{ csrf_field() }}
+        {{ method_field('DELETE') }}
+
+        <button class="btn btn-primary mt-2" type="submit">Delete Pertanyaan</button>
+      </form>
+
 </div>
 
 @endsection

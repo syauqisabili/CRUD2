@@ -24,4 +24,9 @@ class JawabanModel {
         $item = DB::table('jawaban')->where('pertanyaan_id', '=', $id)->get();
         return $item;
     }
+
+    public static function deleteDataByPertanyaanId($id){
+        $item = DB::table('jawaban')->where('pertanyaan_id', '=', $id)->delete();
+        return $item;
+    }
 }

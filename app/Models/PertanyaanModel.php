@@ -23,4 +23,16 @@ class PertanyaanModel {
         $item = DB::table('pertanyaan')->where('id', '=', $id)->first();
         return $item;
     }
+
+    public static function deleteDataById($id){
+        $item = DB::table('pertanyaan')->where('id', '=', $id)->delete();
+        return $item;
+    }
+
+    public static function updateDataById($data, $id){
+        $data['updated_at'] = Carbon::now();
+        $item = DB::table('pertanyaan')->where('id', '=', $id)->update(['judul' => $data['judul'], 'isi' => $data['isi'], 'updated_at' => $data['updated_at']]);
+
+        return $item;
+    }
 }
